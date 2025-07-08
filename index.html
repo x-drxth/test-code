@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>x_Drxth Website/Portfolio</title>
+  <link rel="icon" href="favicon.png" type="image/png"> <!-- 🧠 Tab icon -->
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       height: 100%;
       background: url('bg.jpg') no-repeat center center/cover;
@@ -20,74 +23,98 @@
       align-items: center;
       padding: 60px 20px;
     }
-    .social-links {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
 
-.social-links a {
-  color: white;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.social-links a:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-  .about-me-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  max-width: 900px;
-  animation: fadeInUp 1.2s ease-in-out;
-}
-
-.pfp {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
-.about-text {
-  flex: 1;
-  min-width: 260px;
-}
-
-.name {
-  font-size: 2.4em;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-}
-
-.desc {
-  font-size: 1.2em;
-  line-height: 1.6;
-  color: #e0e0e0;
-}
-    
     h1 {
       font-size: 3em;
       margin-bottom: 40px;
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
       animation: fadeInDown 1s ease-in-out;
+    }
+
+    .about-me-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 50px;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .about-me-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .pfp {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .name {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .desc {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      border-radius: 10px;
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+
+    .social-icon.yt {
+      background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg');
+    }
+
+    .social-icon.dc {
+      background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg');
+    }
+
+    .social-icon.gh {
+      background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg');
     }
 
     .card-container {
@@ -153,26 +180,27 @@
   <div class="main-container">
     <h1>Drxth's Website/Portfolio</h1>
 
-      <div class="about-me-card">
-  <img src="pfp.png" alt="Profile Picture" class="pfp" />
-  <div class="about-text">
-    <h2 class="name"> x_Drxth </h2>
-    <p class="desc">hello i am good at games.</p>
-    <div class="social-links">
-  <a href="https://youtube.com/@yourchannel" target="_blank">🎥 YouTube</a>
-  <a href="https://discord.gg/yourserver" target="_blank">💬 Discord</a>
-  <a href="https://github.com/x-drxth" target="_blank">💻 GitHub</a>
-</div>
-  </div>
-</div>
-    
+    <div class="about-me-card">
+      <img src="pfp.png" alt="Profile Picture" class="pfp" />
+      <div class="about-text">
+        <h2 class="name">x_Drxth</h2>
+        <p class="desc">Hey, I'm a gamer and coder from Bangladesh 🇧🇩. I dominate every game I play 🎮, love AI and robotics 🤖, and share all my packs, projects and codes here. Welcome to my digital lair! 😎</p>
+        <div class="social-links">
+          <a href="https://youtube.com/@yourchannel" target="_blank" class="social-icon yt" title="YouTube"></a>
+          <a href="https://discord.gg/yourserver" target="_blank" class="social-icon dc" title="Discord"></a>
+          <a href="https://github.com/x-drxth" target="_blank" class="social-icon gh" title="GitHub"></a>
+        </div>
+      </div>
+    </div>
+
     <div class="card-container">
       <div class="card">
-        <div> Download my texture pack here! </div>
+        <div>Download my texture pack here!</div>
         <a href="WDYM16x-Bloxdport.zip" download>
           <button class="download-btn">⬇️ Download Pack</button>
         </a>
       </div>
+
       <div class="card">
         <div>View My Bloxd Codes Here!</div>
         <a href="code-viewer.html">
