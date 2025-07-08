@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Code Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .code-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .code-title {
+      font-weight: bold;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-x: auto;
+      background-color: #1a1a1a;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 6px 15px;
+      background-color: #ffffff33;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 JavaScript Codes</h1>
+  <div id="code-container"></div>
+
+  <script>
+    async function loadCodes() {
+      const container = document.getElementById('code-container');
+      const res = await fetch('codes/index.json');
+      const files = await res.json();
+
+      for (const item of files) {
+        const codeText = await fetch('codes/' + item.file).then(r => r.text());
+
+        const card = document.createElement('div');
+        card.className = 'code-card';
+
+        const title = document.createElement('div');
+        title.className = 'code-title';
+        title.textContent = item.file.replace('.txt', '');
+
+        const pre = document.createElement('pre');
+        pre.textContent = codeText;
+
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = '📋 Copy';
+        btn.onclick = () => {
+          navigator.clipboard.writeText(codeText);
+          btn.textContent = '✅ Copied!';
+          setTimeout(() => btn.textContent = '📋 Copy', 1500);
+        };
+
+        card.appendChild(title);
+        card.appendChild(btn);
+        card.appendChild(pre);
+        container.appendChild(card);
+      }
+    }
+
+    loadCodes();
+  </script>
+</body>
+</html>
