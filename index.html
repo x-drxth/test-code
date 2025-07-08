@@ -9,6 +9,7 @@
     html, body {
       height: 100%;
       background: url('bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
       font-family: 'Segoe UI', sans-serif;
       color: white;
       scroll-behavior: smooth;
@@ -68,15 +69,6 @@
     .download-btn:hover, .code-btn:hover {
       background-color: #ffffff55;
     }
-    .search-bar {
-      margin-bottom: 40px;
-      padding: 10px 20px;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 12px;
-      border: none;
-      font-size: 1em;
-    }
     @keyframes fadeInDown {
       from { transform: translateY(-20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -89,41 +81,15 @@
 </head>
 <body>
   <div class="main-container">
-    <h1>📁 My Download Cards & Code Cards</h1>
-    <input type="text" class="search-bar" id="searchInput" placeholder="Search codes...">
-    <div class="card-container" id="cardContainer">
+    <h1>📁 Code Viewer</h1>
+    <div class="card-container">
       <div class="card">
-        <div>Download cool stuff here 🛠️</div>
-        <a href="WDYM16x-Bloxdport.zip" download>
-          <button class="download-btn">⬇️ Download Folder</button>
-        </a>
-      </div>
-      <div class="card">
-        <div>Wanna grab this pack? 🎮</div>
-        <a href="assets-pack.zip" download>
-          <button class="download-btn">⬇️ Download Assets</button>
-        </a>
-      </div>
-      <div class="card">
-        <div>Code Drop Zone 🚀</div>
+        <div>Click to explore codes! 💻</div>
         <a href="code-viewer.html">
           <button class="code-btn">📄 View JS Code</button>
         </a>
       </div>
     </div>
   </div>
-
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
-
-    searchInput.addEventListener('input', () => {
-      const value = searchInput.value.toLowerCase();
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(value) ? 'flex' : 'none';
-      });
-    });
-  </script>
 </body>
 </html>
